@@ -18,12 +18,41 @@ public class MainActivity extends ActionBarActivity {
         Log.i(TAG, "onCreate event fired");
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i(TAG, "onStart event fired");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i(TAG, "onResume event fired");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i(TAG, "onPause event fired");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i(TAG, "onStop event fired");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.e(TAG, "We’re going down, Captain!");
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        Log.i(TAG, "onCreateOptionsMenu event fired");
+        Log.i(TAG, "onCreateOptionsMenu event fired: " + R.menu.menu_main + " " + menu);
         return true;
     }
 
@@ -33,7 +62,7 @@ public class MainActivity extends ActionBarActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        Log.i(TAG, "onOptionsItemSelected event fired");
+        Log.i(TAG, "onOptionsItemSelected event fired: " + item);
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
@@ -42,4 +71,6 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
